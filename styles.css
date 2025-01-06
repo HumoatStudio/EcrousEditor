@@ -1,0 +1,574 @@
+body {
+    display: flex;
+    background-image: linear-gradient(90deg, white, #93879D);
+    color: white;
+    justify-content: center;
+    align-items: flex-end;
+    flex-direction: column;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.upPanel {
+    height: 80px;
+    width: calc(100vw - 100px); /* Устанавливает ширину элемента на 100px меньше ширины окна */
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(90deg, rgb(61, 61, 61), rgb(133, 121, 145));
+    border-radius: 25px;
+    border: 3px solid rgb(120, 110, 118); /* Обводка толщиной 3px, серого цвета */
+}
+
+.Exit {
+    height: 60px;
+    width: 80px;
+    position: absolute;
+    background-image: linear-gradient(90deg, rgb(81, 78, 78), rgb(62, 55, 62)); /* Фон кнопки */
+    border-radius: 15px;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center; /* Центрируем содержимое по горизонтали */
+    align-items: center; /* Центрируем содержимое по вертикали */
+}
+
+.ExitImg {
+    height: 50px;
+    width: 70px;
+    background-image: url('Exit.png'); /* Изображение для кнопки */
+    background-size: contain; /* Уменьшаем изображение, чтобы оно помещалось в кнопке */
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.Exit {
+    top: 10px;
+    left: 10px;
+}
+
+.Plus {
+    height: 60px;
+    width: 80px;
+    position: absolute;
+    background-image: linear-gradient(90deg, rgb(81, 78, 78), rgb(62, 55, 62)); /* Фон кнопки */
+    border-radius: 15px;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center; /* Центрируем содержимое по горизонтали */
+    align-items: center; /* Центрируем содержимое по вертикали */
+}
+
+.PlusImg {
+    height: 50px;
+    width: 70px;
+    background-image: url('Plus.png'); /* Изображение для кнопки */
+    background-size: contain; /* Уменьшаем изображение, чтобы оно помещалось в кнопке */
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.Plus {
+    top: 10px;
+    left: 100px;
+}
+.Scripting {
+    height: 60px;
+    width: 80px;
+    position: absolute;
+    background-image: linear-gradient(90deg, rgb(81, 78, 78), rgb(62, 55, 62)); /* Фон кнопки */
+    border-radius: 15px;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center; /* Центрируем содержимое по горизонтали */
+    align-items: center; /* Центрируем содержимое по вертикали */
+}
+
+.ScriptingImg {
+    height: 45px;
+    width: 65px;
+    background-image: url('CMD.png'); /* Изображение для кнопки */
+    background-size: contain; /* Уменьшаем изображение, чтобы оно помещалось в кнопке */
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.Scripting {
+    top: 10px;
+    left: 190px;
+}
+
+/* Медиазапросы для адаптивности */
+
+/* Для мобильных устройств (меньше 600px) */
+@media (max-width: 600px) {
+    .upPanel {
+        width: calc(100vw - 40px); /* Уменьшаем ширину панели */
+        height: 60px; /* Уменьшаем высоту панели */
+    }
+
+    .Exit, .Plus, .Scripting {
+        width: 50px; /* Уменьшаем ширину кнопок */
+        height: 50px; /* Уменьшаем высоту кнопок */
+        left: 10px; /* Убираем отступы по горизонтали для мобильных */
+    }
+
+    .Plus {
+        left: 70px; /* Увеличиваем отступ для кнопок */
+    }
+
+    .Scripting {
+        left: 130px;
+    }
+}
+
+/* Для планшетов (от 601px до 1024px) */
+@media (max-width: 1024px) and (min-width: 601px) {
+    .upPanel {
+        width: calc(100vw - 60px); /* Немного уменьшаем ширину панели */
+        height: 70px; /* Увеличиваем высоту панели */
+    }
+
+    .Exit, .Plus, .Scripting {
+        width: 60px; /* Увеличиваем ширину кнопок */
+        height: 60px; /* Увеличиваем высоту кнопок */
+        left: 20px; /* Увеличиваем отступы с краёв */
+    }
+
+    .Plus {
+        left: 100px; /* Расстояние между кнопками */
+    }
+
+    .Scripting {
+        left: 180px;
+    }
+}
+
+/* Для больших экранов (больше 1024px) */
+@media (min-width: 1025px) {
+    .upPanel {
+        width: calc(100vw - 100px); /* Стандартная ширина панели */
+        height: 80px; /* Стандартная высота панели */
+    }
+
+    .Exit, .Plus, .Scripting {
+        width: 80px; /* Стандартная ширина кнопок */
+        height: 60px; /* Стандартная высота кнопок */
+    }
+
+    .Exit {
+        left: 10px; /* Отступ для кнопки Exit */
+    }
+
+    .Plus {
+        left: 100px; /* Отступ для кнопки Plus */
+    }
+
+    .Scripting {
+        left: 190px; /* Отступ для кнопки Sprites */
+    }
+}
+
+.rightPanel {
+    height: calc(80vh - 100px);
+    width: 80px;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    background-image: linear-gradient(90deg, rgb(61, 61, 61), rgb(133, 121, 145));
+    border-radius: 25px;
+    border: 3px solid rgb(120, 110, 118);
+    transform: translateY(-50%);
+}
+
+.VisualScript {
+    height: 60px;
+    width: 80px;
+    position: absolute;
+    background-image: linear-gradient(90deg, rgb(81, 78, 78), rgb(62, 55, 62)); /* Фон кнопки */
+    border-radius: 15px;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center; /* Центрируем содержимое по горизонтали */
+    align-items: center; /* Центрируем содержимое по вертикали */
+}
+
+.VisualScriptImg {
+    height: 50px;
+    width: 70px;
+    background-image: url('VSScript.png'); /* Изображение для кнопки */
+    background-size: contain; /* Уменьшаем изображение, чтобы оно помещалось в кнопке */
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.VisualScript {
+    top: 10px;
+    left: 10px;
+}
+
+.Sprites {
+    height: 60px;
+    width: 80px;
+    position: absolute;
+    background-image: linear-gradient(90deg, rgb(81, 78, 78), rgb(62, 55, 62)); /* Фон кнопки */
+    border-radius: 15px;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center; /* Центрируем содержимое по горизонтали */
+    align-items: center; /* Центрируем содержимое по вертикали */
+}
+
+.SpritesImg {
+    height: 50px;
+    width: 70px;
+    background-image: url('Sprites.png'); /* Изображение для кнопки */
+    background-size: contain; /* Уменьшаем изображение, чтобы оно помещалось в кнопке */
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.Sprites {
+    top: 100px;
+    left: 10px;
+}
+
+.Ads {
+    height: 60px;
+    width: 80px;
+    position: absolute;
+    background-image: linear-gradient(90deg, rgb(81, 78, 78), rgb(62, 55, 62)); /* Фон кнопки */
+    border-radius: 15px;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center; /* Центрируем содержимое по горизонтали */
+    align-items: center; /* Центрируем содержимое по вертикали */
+}
+
+.AdsImg {
+    height: 40px;
+    width: 60px;
+    background-image: url('AD.png'); /* Изображение для кнопки */
+    background-size: contain; /* Уменьшаем изображение, чтобы оно помещалось в кнопке */
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.Ads {
+    top: 190px;
+    left: 10px;
+}
+
+.BuildSettings {
+    height: 60px;
+    width: 80px;
+    position: absolute;
+    background-image: linear-gradient(90deg, rgb(81, 78, 78), rgb(62, 55, 62)); /* Фон кнопки */
+    border-radius: 15px;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center; /* Центрируем содержимое по горизонтали */
+    align-items: center; /* Центрируем содержимое по вертикали */
+}
+
+.BuildSettingsImg {
+    height: 50px;
+    width: 70px;
+    background-image: url('BuildSettings.png'); /* Изображение для кнопки */
+    background-size: contain; /* Уменьшаем изображение, чтобы оно помещалось в кнопке */
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.BuildSettings {
+    top: 300px;
+    left: 10px;
+}
+
+.Musics {
+    height: 60px;
+    width: 80px;
+    position: absolute;
+    background-image: linear-gradient(90deg, rgb(81, 78, 78), rgb(62, 55, 62)); /* Фон кнопки */
+    border-radius: 15px;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center; /* Центрируем содержимое по горизонтали */
+    align-items: center; /* Центрируем содержимое по вертикали */
+}
+
+.MusicsImg {
+    height: 50px;
+    width: 70px;
+    background-image: url('Musics.png'); /* Изображение для кнопки */
+    background-size: contain; /* Уменьшаем изображение, чтобы оно помещалось в кнопке */
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.Musics {
+    top: 390px;
+    left: 10px;
+}
+
+.Play {
+    height: 60px;
+    width: 80px;
+    position: absolute;
+    background-image: linear-gradient(90deg, rgb(81, 78, 78), rgb(62, 55, 62)); /* Фон кнопки */
+    border-radius: 15px;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center; /* Центрируем содержимое по горизонтали */
+    align-items: center; /* Центрируем содержимое по вертикали */
+}
+
+.PlayImg {
+    height: 50px;
+    width: 70px;
+    background-image: url('Play.png'); /* Изображение для кнопки */
+    background-size: contain; /* Уменьшаем изображение, чтобы оно помещалось в кнопке */
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.Play {
+    top: 490px;
+    left: 10px;
+}
+
+/* Медиазапросы для адаптивности */
+
+/* Для мобильных устройств (меньше 600px) */
+@media (max-width: 600px) {
+    .rightPanel {
+        width: 60px;
+        height: calc(70vh - 60px); /* Уменьшаем высоту на мобильных */
+    }
+    
+    .VisualScript, .Sprites, .Ads, .BuildSettings, .Musics, .Play {
+        width: 50px; /* Уменьшаем ширину кнопок */
+        height: 60px; /* Уменьшаем высоту кнопок */
+    }
+
+    .VisualScript {
+        top: 5px;
+    }
+
+    .Sprites {
+        top: 80px;
+    }
+
+    .Ads {
+        top: 160px;
+    }
+
+    .BuildSettings {
+        top: 240px;
+    }
+
+    .Musics {
+        top: 320px;
+    }
+
+    .Play {
+        top: 400px;
+    }
+}
+
+/* Для планшетов (от 601px до 1024px) */
+@media (max-width: 1024px) and (min-width: 601px) {
+    .rightPanel {
+        width: 70px;
+        height: calc(75vh - 80px); /* Подстраиваем высоту под планшеты */
+    }
+
+    .VisualScript, .Sprites, .Ads, .BuildSettings, .Musics, .Play {
+        width: 55px; /* Ширина кнопок на планшетах */
+        height: 70px; /* Высота кнопок на планшетах */
+    }
+
+    .VisualScript {
+        top: 10px;
+    }
+
+    .VisualScript {
+        top: 120px;
+    }
+
+    .Ads {
+        top: 200px;
+    }
+
+    .BuildSettings {
+        top: 280px;
+    }
+
+    .Musics {
+        top: 360px;
+    }
+
+    .Play {
+        top: 420px;
+    }
+}
+
+/* Для больших экранов (больше 1024px) */
+@media (min-width: 1025px) {
+    .rightPanel {
+        width: 80px;
+        height: calc(80vh - 100px); /* Выровняем для больших экранов */
+    }
+
+    .VisualScript, .Sprites, .Ads, .BuildSettings, .Musics, .Play {
+        width: 60px; /* Стандартная ширина для больших экранов */
+        height: 80px; /* Стандартная высота */
+    }
+
+    .VisualScript {
+        top: 10px;
+    }
+
+    .Sprites {
+        top: 100px;
+    }
+
+    .Ads {
+        top: 190px;
+    }
+
+    .BuildSettings {
+        top: 300px;
+    }
+
+    .Musics {
+        top: 390px;
+    }
+
+    .Play {
+        top: 490px;
+    }
+}
+
+/* PlusObjectsEditor */
+
+.PlusObjectsEditor-panel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 400px; /* Ширина панели */
+    height: 600px; /* Высота панели */
+    background-image: linear-gradient(90deg, rgb(102, 96, 103), rgb(133, 121, 145));
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transform: translate(-50%, -50%); /* Центрирование панели */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Добавление тени */
+    border-radius: 20px; /* Закругленные углы */
+}
+
+.close-PlusObjectsEditor {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    z-index: 10;
+    background: none;
+    border: none;
+    padding: 0;
+    animation: fadeInTitle 2s ease-in-out forwards;
+}
+
+.close-PlusObjectsEditor img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.close-PlusObjectsEditor:hover {
+    transform: scale(1.1);
+}
+
+.PlusObjectsEditor-content {
+    text-align: center;
+}
+
+.titlePlusObjectsEditor {
+    position: absolute;
+    top: 35px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    animation: fadeInTitle 1s ease-in-out;
+}
+
+/* SpritesEditor */
+
+.SpritesEditor-panel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 400px; /* Ширина панели */
+    height: 600px; /* Высота панели */
+    background-image: linear-gradient(90deg, rgb(102, 96, 103), rgb(133, 121, 145));
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transform: translate(-50%, -50%); /* Центрирование панели */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Добавление тени */
+    border-radius: 20px; /* Закругленные углы */
+}
+
+.close-SpritesEditor {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    z-index: 10;
+    background: none;
+    border: none;
+    padding: 0;
+    animation: fadeInTitle 2s ease-in-out forwards;
+}
+
+.close-SpritesEditor img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.close-SpritesEditor:hover {
+    transform: scale(1.1);
+}
+
+.SpritesEditor-content {
+    text-align: center;
+}
+
+.titleSpritesEditor {
+    position: absolute;
+    top: 35px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    animation: fadeInTitle 1s ease-in-out;
+}
