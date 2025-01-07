@@ -14,7 +14,7 @@
         <button class="Plus" onclick="openPlusObjectsEditor()">
             <div class="PlusImg"></div>
         </button>
-        <button class="Scripting" onclick="openScriptingEditor()">
+        <button class="Scripting" onclick="openScriptMenu()">
             <div class="ScriptingImg"></div>
         </button>
     </div>
@@ -28,17 +28,19 @@
         <button class="Ads">
             <div class="AdsImg"></div>
         </button>
-        <button class="BuildSettings" onclick="openBuildSettingsEditor()">
+        <button class="BuildSettings" onclick="openBuildSettingsMenu()">
             <div class="BuildSettingsImg"></div>
         </button>
 
         <button class="Musics" onclick="openMusicsEditor()">
             <div class="MusicsImg"></div>
         </button>
-        <button class="Play" onclick="openPlay()">
+        <button class="Play" onclick="openRunLoading()">
             <div class="PlayImg"></div>
         </button>
     </div>
+
+    <div id="panel"></div>
 
     <!-- PlusObjectsEditor -->
     <div id="PlusObjectsEditorPanel" class="PlusObjectsEditor-panel" style="display: none;">
@@ -46,19 +48,102 @@
             <img src="Close.png" alt="Закрыть">
         </button>
         <h1 class="titlePlusObjectsEditor">Создать</h1>
-        <div class="PlusObjectsEditor-content" style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
-            <button class="PlusObjectsEditor-button" style="width: 300px; height: 100px; background: linear-gradient(45deg, rgb(132, 126, 133), rgb(163, 151, 175)); border: none; border-radius: 10px; color: white; font-size: 18px; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;">
-                3D
-            </button>
-            <button class="PlusObjectsEditor-button" style="width: 300px; height: 100px; background: linear-gradient(45deg, rgb(132, 126, 133), rgb(163, 151, 175)); border: none; border-radius: 10px; color: white; font-size: 18px; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;">
-                GUI
-            </button>
-            <button class="PlusObjectsEditor-button" style="width: 300px; height: 100px; background: linear-gradient(45deg, rgb(132, 126, 133), rgb(163, 151, 175)); border: none; border-radius: 10px; color: white; font-size: 18px; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;">
-                Light
-            </button>
-            <button class="PlusObjectsEditor-button" style="width: 300px; height: 100px; background: linear-gradient(45deg, rgb(132, 126, 133), rgb(163, 151, 175)); border: none; border-radius: 10px; color: white; font-size: 18px; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;">
-                Camera
-            </button>
+        <div class="scroll-containerPlus">
+            <div class="PlusObjectsEditor-content" style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
+                <button class="PlusObjectsEditor-button" style="width: 300px; height: 100px; background: linear-gradient(45deg, rgb(132, 126, 133), rgb(163, 151, 175)); border: none; border-radius: 10px; color: white; font-size: 18px; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;" onclick="openThreeDMenu()">
+                    3D Object
+                </button>
+                <button class="PlusObjectsEditor-button" style="width: 300px; height: 100px; background: linear-gradient(45deg, rgb(132, 126, 133), rgb(163, 151, 175)); border: none; border-radius: 10px; color: white; font-size: 18px; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;" onclick="open2DMenu()">
+                    2D Object
+                </button>
+                <button class="PlusObjectsEditor-button" style="width: 300px; height: 100px; background: linear-gradient(45deg, rgb(132, 126, 133), rgb(163, 151, 175)); border: none; border-radius: 10px; color: white; font-size: 18px; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;" onclick="openGUIMenu()">
+                    GUI
+                </button>
+                <button class="PlusObjectsEditor-button" style="width: 300px; height: 100px; background: linear-gradient(45deg, rgb(132, 126, 133), rgb(163, 151, 175)); border: none; border-radius: 10px; color: white; font-size: 18px; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;">
+                    Light
+                </button>
+                <button class="PlusObjectsEditor-button" style="width: 300px; height: 100px; background: linear-gradient(45deg, rgb(132, 126, 133), rgb(163, 151, 175)); border: none; border-radius: 10px; color: white; font-size: 18px; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;">
+                    Camera
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3DObjects Submenu -->
+    <div id="ThreeDObjectsMenuPanel" class="PlusObjectsEditor-panel" style="display: none;">
+        <button class="close-ThreeDObjectsMenu" onclick="closeThreeDMenu()">
+            <img src="Close.png" alt="Закрыть">
+        </button>
+        <h1 class="titleThreeDObjectsMenu">3D Объекты</h1>
+        <div class="scroll-containerPlus">
+            <div class="ThreeDObjectsMenu-content" style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
+                <button class="GUIMenu-button" style="width: 300px; height: 100px; background: linear-gradient(45deg, rgb(132, 126, 133), rgb(163, 151, 175)); border: none; border-radius: 10px; color: white; font-size: 18px; cursor: pointer;" onclick="CreateGUIPanel()">
+                    Cube
+                </button>
+                <button class="GUIMenu-button" style="width: 300px; height: 100px; background: linear-gradient(45deg, rgb(132, 126, 133), rgb(163, 151, 175)); border: none; border-radius: 10px; color: white; font-size: 18px; cursor: pointer;" onclick="CreateGUIText()">
+                    Sphere
+                </button>
+                <button class="GUIMenu-button" style="width: 300px; height: 100px; background: linear-gradient(45deg, rgb(132, 126, 133), rgb(163, 151, 175)); border: none; border-radius: 10px; color: white; font-size: 18px; cursor: pointer;">
+                    Capsule
+                </button>
+                <button class="GUIMenu-button" style="width: 300px; height: 100px; background: linear-gradient(45deg, rgb(132, 126, 133), rgb(163, 151, 175)); border: none; border-radius: 10px; color: white; font-size: 18px; cursor: pointer;">
+                    Cylinder
+                </button>
+                <button class="GUIMenu-button" style="width: 300px; height: 100px; background: linear-gradient(45deg, rgb(132, 126, 133), rgb(163, 151, 175)); border: none; border-radius: 10px; color: white; font-size: 18px; cursor: pointer;">
+                    Plane
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- GUI Submenu -->
+    <div id="GUIMenuPanel" class="PlusObjectsEditor-panel" style="display: none;">
+        <button class="close-GUIMenu" onclick="closeGUIMenu()">
+            <img src="Close.png" alt="Закрыть">
+        </button>
+        <h1 class="titleGUIMenu">GUI</h1>
+        <div class="scroll-containerPlus">
+            <div class="GUIMenu-content" style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
+                <button class="GUIMenu-button" style="width: 300px; height: 100px; background: linear-gradient(45deg, rgb(132, 126, 133), rgb(163, 151, 175)); border: none; border-radius: 10px; color: white; font-size: 18px; cursor: pointer;" onclick="CreateGUIPanel()">
+                    GUI Panel
+                </button>
+                <button class="GUIMenu-button" style="width: 300px; height: 100px; background: linear-gradient(45deg, rgb(132, 126, 133), rgb(163, 151, 175)); border: none; border-radius: 10px; color: white; font-size: 18px; cursor: pointer;" onclick="CreateGUIText()">
+                    GUI Text
+                </button>
+                <button class="GUIMenu-button" style="width: 300px; height: 100px; background: linear-gradient(45deg, rgb(132, 126, 133), rgb(163, 151, 175)); border: none; border-radius: 10px; color: white; font-size: 18px; cursor: pointer;">
+                    GUI RawImage
+                </button>
+                <button class="GUIMenu-button" style="width: 300px; height: 100px; background: linear-gradient(45deg, rgb(132, 126, 133), rgb(163, 151, 175)); border: none; border-radius: 10px; color: white; font-size: 18px; cursor: pointer;">
+                    GUI Image
+                </button>
+                <button class="GUIMenu-button" style="width: 300px; height: 100px; background: linear-gradient(45deg, rgb(132, 126, 133), rgb(163, 151, 175)); border: none; border-radius: 10px; color: white; font-size: 18px; cursor: pointer;">
+                    GUI Button
+                </button>
+                <button class="GUIMenu-button" style="width: 300px; height: 100px; background: linear-gradient(45deg, rgb(132, 126, 133), rgb(163, 151, 175)); border: none; border-radius: 10px; color: white; font-size: 18px; cursor: pointer;">
+                    GUI Button - Text
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ScriptMenu -->
+    <div id="ScriptMenuPanel" class="ScriptMenu-panel" style="display: none;">
+        <button class="close-ScriptMenu" onclick="closeScriptMenu()">
+            <img src="Close.png" alt="Закрыть">
+        </button>
+        <h1 class="titleScriptMenu">Выбор ЯП</h1>
+        <div class="scroll-containerPlus">
+            <div class="ScriptMenu-content" style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
+                <button class="GUIMenu-button" style="width: 300px; height: 100px; background: linear-gradient(45deg, rgb(132, 126, 133), rgb(163, 151, 175)); border: none; border-radius: 10px; color: white; font-size: 18px; cursor: pointer;" onclick="CreateGUIPanel()">
+                    NexLang
+                </button>
+                <button class="GUIMenu-button" style="width: 300px; height: 100px; background: linear-gradient(45deg, rgb(132, 126, 133), rgb(163, 151, 175)); border: none; border-radius: 10px; color: white; font-size: 18px; cursor: pointer;" onclick="CreateGUIText()">
+                    SlashSript
+                </button>
+                <button class="GUIMenu-button" style="width: 300px; height: 100px; background: linear-gradient(45deg, rgb(132, 126, 133), rgb(163, 151, 175)); border: none; border-radius: 10px; color: white; font-size: 18px; cursor: pointer;">
+                    PJScript
+                </button>
+            </div>
         </div>
     </div>
 
@@ -69,6 +154,47 @@
         </button>
         <h1 class="titleSpritesEditor">Загрузить...</h1>
         <div class="SpritesEditor-content" style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
+            <input type="file" id="uploadSprite" accept="image/*" style="padding: 10px; border-radius: 5px; border: 1px solid #ccc; cursor: pointer;">
+            <div id="spritePreview" style="margin-top: 20px; display: flex; justify-content: center; align-items: center; border: 1px dashed #ccc; width: 300px; height: 300px; background-color: #f0f0f0;">
+                <span style="color: #aaa;">Предпросмотр изображения</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- BuildSettingsMenu -->
+    <div id="BuildSettingsMenuPanel" class="BuildSettingsMenu-panel" style="display: none;">
+        <button class="close-BuildSettingsMenu" onclick="closeBuildSettingsMenu()">
+            <img src="Close.png" alt="Закрыть">
+        </button>
+        <h1 class="titleBuildSettingsMenu">Настройки</h1>
+        <div class="scroll-containerPlus">
+            <div class="BuildSettingsMenu-content" style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
+                <input type="text" id="projectName" class="text-input-BuildSettingsMenu" placeholder="Название проекта...">
+                <input type="text" id="projectPackage" class="text-input-BuildSettingsMenu" placeholder="Пакет проекта...">
+                <input type="text" id="projectVersion" class="text-input-BuildSettingsMenu" placeholder="Версия проекта v.1.0.0">
+                <input type="text" id="projectAuthor" class="text-input-BuildSettingsMenu" placeholder="Автор проекта...">
+                <input type="text" id="projectBuildNum" class="text-input-BuildSettingsMenu" placeholder="Номер сборки 1">
+            </div>
+        </div>
+        <button class="save-json-button" onclick="saveJSON()">Сохранить JSON</button>
+    </div>
+
+    <!-- RunLoading -->
+    <div id="RunLoadingPanel" class="RunLoading-panel" style="display: none;">
+        <div class="RunLoading-content" style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
+            <h1 class="MadeWithTitle">Made With Ecrous Engine</h1>
+            <div class="AppMade">
+                <img src="app.jpg" alt="LogoApp">
+            </div>
+        </div>
+    </div>
+
+    <!-- RunMenu -->
+    <div id="RunMenuPanel" class="RunMenu-panel" style="display: none;">
+        <button class="close-RunMenu" onclick="closeRunMenu()">
+            <img src="Close.png" alt="Закрыть">
+        </button>
+        <div class="RunMenu-content" style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
         </div>
     </div>
 

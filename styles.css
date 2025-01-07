@@ -1,3 +1,9 @@
+/* Второй шрифт */
+@font-face {
+    font-family: 'CustomFont2';
+    src: url('Khand-Bold.ttf') format('opentype');
+}
+
 body {
     display: flex;
     background-image: linear-gradient(90deg, white, #93879D);
@@ -571,4 +577,440 @@ body {
     transform: translate(-50%, -50%);
     font-size: 2rem;
     animation: fadeInTitle 1s ease-in-out;
+}
+
+/* ThreeDObjectsMenu */
+
+.ThreeDObjectsMenu-panel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 400px; /* Ширина панели */
+    height: 600px; /* Высота панели */
+    background-image: linear-gradient(90deg, rgb(102, 96, 103), rgb(133, 121, 145));
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transform: translate(-50%, -50%); /* Центрирование панели */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Добавление тени */
+    border-radius: 20px; /* Закругленные углы */
+}
+
+.close-ThreeDObjectsMenu {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    z-index: 10;
+    background: none;
+    border: none;
+    padding: 0;
+    animation: fadeInTitle 2s ease-in-out forwards;
+}
+
+.close-ThreeDObjectsMenu img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.close-ThreeDObjectsMenu:hover {
+    transform: scale(1.1);
+}
+
+.ThreeDObjectsMenu-content {
+    text-align: center;
+}
+
+.titleThreeDObjectsMenu {
+    position: absolute;
+    top: 35px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    animation: fadeInTitle 1s ease-in-out;
+}
+
+/* GUIMenu */
+
+.GUIMenu-panel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 400px; /* Ширина панели */
+    height: 600px; /* Высота панели */
+    background-image: linear-gradient(90deg, rgb(102, 96, 103), rgb(133, 121, 145));
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transform: translate(-50%, -50%); /* Центрирование панели */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Добавление тени */
+    border-radius: 20px; /* Закругленные углы */
+}
+
+.close-GUIMenu {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    z-index: 10;
+    background: none;
+    border: none;
+    padding: 0;
+    animation: fadeInTitle 2s ease-in-out forwards;
+}
+
+.close-GUIMenu img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.close-GUIMenu:hover {
+    transform: scale(1.1);
+}
+
+.GUIMenu-content {
+    text-align: center;
+}
+
+.titleGUIMenu {
+    position: absolute;
+    top: 35px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    animation: fadeInTitle 1s ease-in-out;
+}
+
+#panel {
+    position: absolute; /* Используем абсолютное позиционирование */
+    width: 50%;
+    height: 60%;
+    top: 50%; /* Центрируем по вертикали */
+    left: 50%; /* Центрируем по горизонтали */
+    transform: translate(-50%, -50%); /* Сдвигаем панель на 50% по обеим осям */
+    background-color: rgba(255, 255, 255, 0.1); /* Полупрозрачный фон */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow: hidden; /* Скрываем элементы, выходящие за пределы панели */
+}
+
+.square {
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    background-color: #3498db;
+    position: absolute;
+    cursor: grab; /* Устанавливаем курсор для перетаскивания */
+}
+
+.scroll-containerPlus {
+    width: 300px; /* ширина контейнера */
+    height: 400px; /* высота контейнера */
+    border: 1px solid #ccc; /* рамка для визуализации */
+    overflow-y: scroll; /* вертикальная прокрутка */
+    padding: 10px; /* отступы внутри */
+}
+
+.scroll-containerPlus::-webkit-scrollbar {
+    width: 10px; /* ширина полосы прокрутки */
+}
+
+.scroll-containerPlus::-webkit-scrollbar-thumb {
+    background: #888; /* цвет ползунка */
+    border-radius: 5px; /* закругление */
+}
+
+.scroll-containerPlus::-webkit-scrollbar-thumb:hover {
+    background: #555; /* цвет ползунка при наведении */
+}
+
+/* RunLoading */
+.RunLoading-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(90deg, rgb(51, 51, 65), rgb(133, 121, 145));
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0; /* Скрываем панель по умолчанию */
+    animation: fadeInPanel 1s ease-in-out forwards; /* Анимация появления */
+}
+
+/* Анимация появления панели */
+@keyframes fadeInPanel {
+    0% {
+        opacity: 0;
+        transform: scale(0.9); /* Легкое уменьшение */
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1); /* Возвращение к исходному размеру */
+    }
+}
+
+/* Анимация загрузочного контента */
+.RunLoading-content {
+    text-align: center;
+    animation: pulse 2s infinite; /* Пульсация */
+}
+
+/* Анимация пульсации */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+.MadeWithTitle {
+    position: absolute;
+    top: -200px; /* Текст у верхней границы экрана */
+    left: 0; /* Текст слева у края */
+    font-size: 2rem;
+    animation: slideDown 1.5s ease-out; /* Анимация спуска */
+    font-family: 'CustomFont2', sans-serif; /* Укажите шрифт по своему предпочтению */
+    text-align: center; /* Выравнивание текста по левому краю */
+    margin: 20px; /* Отступ от верхнего и левого края */
+}
+
+/* Анимация спуска текста */
+@keyframes slideDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.AppMade img {
+    height: 250px;
+    width: 250px;
+    border-radius: 20px;
+}
+
+/* RunMenu */
+
+.RunMenu-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000; /* Тёмно-серый цвет фона */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.close-RunMenu {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    z-index: 10;
+    background: none;
+    border: none;
+    padding: 0;
+    animation: fadeInTitle 2s ease-in-out forwards;
+}
+
+.close-RunMenu img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.close-RunMenu:hover {
+    transform: scale(1.1);
+}
+
+.RunMenu-content {
+    text-align: center;
+}
+
+/* ScriptMenu */
+
+.ScriptMenu-panel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 400px; /* Ширина панели */
+    height: 600px; /* Высота панели */
+    background-image: linear-gradient(90deg, rgb(102, 96, 103), rgb(133, 121, 145));
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transform: translate(-50%, -50%); /* Центрирование панели */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Добавление тени */
+    border-radius: 20px; /* Закругленные углы */
+}
+
+.close-ScriptMenu {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    z-index: 10;
+    background: none;
+    border: none;
+    padding: 0;
+    animation: fadeInTitle 2s ease-in-out forwards;
+}
+
+.close-ScriptMenu img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.close-ScriptMenu:hover {
+    transform: scale(1.1);
+}
+
+.ScriptMenu-content {
+    text-align: center;
+}
+
+.titleScriptMenu {
+    position: absolute;
+    top: 35px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    animation: fadeInTitle 1s ease-in-out;
+}
+
+/* BuildSettingsMenu */
+
+.BuildSettingsMenu-panel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 400px; /* Ширина панели */
+    height: 600px; /* Высота панели */
+    background-image: linear-gradient(90deg, rgb(102, 96, 103), rgb(133, 121, 145));
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transform: translate(-50%, -50%); /* Центрирование панели */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Добавление тени */
+    border-radius: 20px; /* Закругленные углы */
+}
+
+.close-BuildSettingsMenu {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    z-index: 10;
+    background: none;
+    border: none;
+    padding: 0;
+    animation: fadeInTitle 2s ease-in-out forwards;
+}
+
+.close-BuildSettingsMenu img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.close-BuildSettingsMenu:hover {
+    transform: scale(1.1);
+}
+
+.BuildSettingsMenu-content {
+    text-align: center;
+}
+
+.titleBuildSettingsMenu {
+    position: absolute;
+    top: 35px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    animation: fadeInTitle 1s ease-in-out;
+}
+
+.text-input-BuildSettingsMenu {
+    width: 200px;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Горизонтальное центрирование текста */
+    line-height: 20px; /* Вертикальное выравнивание для ровности */
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.text-input-BuildSettingsMenu:focus {
+    border-color: #007BFF;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+    outline: none;
+}
+
+.save-json-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-image: linear-gradient(45deg, #1f2937, #293647, #233043);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.save-json-button:hover {
+    background-image: linear-gradient(45deg, #1f2937, #293647, #233043);
 }
