@@ -17,13 +17,16 @@
         <button class="Scripting" onclick="openScriptMenu()">
             <div class="ScriptingImg"></div>
         </button>
+        <button class="AI" onclick="openAIEditor()">
+            <div class="AIImg"></div>
+        </button>
     </div>
     <div class="rightPanel">
         <button class="VisualScript" onclick="openVisualScriptEditor()">
             <div class="VisualScriptImg"></div>
         </button>
-        <button class="Sprites" onclick="openSpritesEditor()">
-            <div class="SpritesImg"></div>
+        <button class="Resources" onclick="openResourcesEditor()">
+            <div class="ResourcesImg"></div>
         </button>
         <button class="Ads">
             <div class="AdsImg"></div>
@@ -32,11 +35,26 @@
             <div class="BuildSettingsImg"></div>
         </button>
 
-        <button class="Musics" onclick="openMusicsEditor()">
-            <div class="MusicsImg"></div>
+        <button class="Settings" onclick="openSettingsEditor()">
+            <div class="SettingsImg"></div>
         </button>
         <button class="Play" onclick="openRunLoading()">
             <div class="PlayImg"></div>
+        </button>
+    </div>
+
+    <div class="leftPanel">
+        <button class="Cursor" onclick="enableCursorMode()">
+            <div class="CursorImg"></div>
+        </button>
+        <button class="Transform" onclick="enableTransformMode()">
+            <div class="TransformImg"></div>
+        </button>
+        <button class="Rotate" onclick="enableRotateMode()">
+            <div class="RotateImg"></div>
+        </button>
+        <button class="Scale" onclick="enableScaleMode()">
+            <div class="ScaleImg"></div>
         </button>
     </div>
 
@@ -50,9 +68,9 @@
         <h1 class="titlePlusObjectsEditor">Создать</h1>
         <div class="scroll-containerPlus">
             <div class="PlusObjectsEditor-content" style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
-                <button class="PlusObjectsEditor-button" style="width: 300px; height: 100px; background: linear-gradient(45deg, rgb(132, 126, 133), rgb(163, 151, 175)); border: none; border-radius: 10px; color: white; font-size: 18px; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;" onclick="openThreeDMenu()">
+                <!-- <button class="PlusObjectsEditor-button" style="width: 300px; height: 100px; background: linear-gradient(45deg, rgb(132, 126, 133), rgb(163, 151, 175)); border: none; border-radius: 10px; color: white; font-size: 18px; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;" onclick="openThreeDMenu()">
                     3D Object
-                </button>
+                </button> -->
                 <button class="PlusObjectsEditor-button" style="width: 300px; height: 100px; background: linear-gradient(45deg, rgb(132, 126, 133), rgb(163, 151, 175)); border: none; border-radius: 10px; color: white; font-size: 18px; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;" onclick="open2DMenu()">
                     2D Object
                 </button>
@@ -65,9 +83,28 @@
                 <button class="PlusObjectsEditor-button" style="width: 300px; height: 100px; background: linear-gradient(45deg, rgb(132, 126, 133), rgb(163, 151, 175)); border: none; border-radius: 10px; color: white; font-size: 18px; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;">
                     Camera
                 </button>
+                <button class="PlusObjectsEditor-button" style="width: 300px; height: 100px; background: linear-gradient(45deg, rgb(132, 126, 133), rgb(163, 151, 175)); border: none; border-radius: 10px; color: white; font-size: 18px; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;" onclick="openBackgroundOptions()">
+                    Background Options
+                </button>
             </div>
         </div>
     </div>
+
+    <!-- AIEditor -->
+    <div id="AIEditorPanel" class="AIEditor-panel" style="display: none;">
+        <button class="close-AIEditor" onclick="closeAIEditor()">
+            <img src="Close.png" alt="Закрыть">
+        </button>
+        <h1 class="titleAIEditor">Tabby AI</h1>
+        <div class="AIEditor-content">
+            <div class="chat-container">
+                <div id="userMessageContainer" class="messages-container"></div>
+                <div id="AIMessageContainer" class="messages-container"></div>
+            </div>
+            <input type="text" id="userQuestion" placeholder="Задайте вопрос..." onkeydown="handleEnter(event)">
+            <button class="send-button" onclick="checkQuestion()">Отправить</button>
+        </div>
+    </div>          
 
     <!-- 3DObjects Submenu -->
     <div id="ThreeDObjectsMenuPanel" class="PlusObjectsEditor-panel" style="display: none;">
@@ -91,6 +128,27 @@
                 </button>
                 <button class="GUIMenu-button" style="width: 300px; height: 100px; background: linear-gradient(45deg, rgb(132, 126, 133), rgb(163, 151, 175)); border: none; border-radius: 10px; color: white; font-size: 18px; cursor: pointer;">
                     Plane
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3DObjects Submenu -->
+    <div id="ThreeDObjectsMenuPanel" class="PlusObjectsEditor-panel" style="display: none;">
+        <button class="close-ThreeDObjectsMenu" onclick="closeThreeDMenu()">
+            <img src="Close.png" alt="Закрыть">
+        </button>
+        <h1 class="titleThreeDObjectsMenu">3D Объекты</h1>
+        <div class="scroll-containerPlus">
+            <div class="ThreeDObjectsMenu-content" style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
+                <button class="GUIMenu-button" style="width: 300px; height: 100px; background: linear-gradient(45deg, rgb(132, 126, 133), rgb(163, 151, 175)); border: none; border-radius: 10px; color: white; font-size: 18px; cursor: pointer;">
+                    GUI Square
+                </button>
+                <button class="GUIMenu-button" style="width: 300px; height: 100px; background: linear-gradient(45deg, rgb(132, 126, 133), rgb(163, 151, 175)); border: none; border-radius: 10px; color: white; font-size: 18px; cursor: pointer;">
+                    GUI Circle
+                </button>
+                <button class="GUIMenu-button" style="width: 300px; height: 100px; background: linear-gradient(45deg, rgb(132, 126, 133), rgb(163, 151, 175)); border: none; border-radius: 10px; color: white; font-size: 18px; cursor: pointer;">
+                    GUI Triangle
                 </button>
             </div>
         </div>
@@ -122,6 +180,27 @@
                 <button class="GUIMenu-button" style="width: 300px; height: 100px; background: linear-gradient(45deg, rgb(132, 126, 133), rgb(163, 151, 175)); border: none; border-radius: 10px; color: white; font-size: 18px; cursor: pointer;">
                     GUI Button - Text
                 </button>
+                <button class="GUIMenu-button" style="width: 300px; height: 100px; background: linear-gradient(45deg, rgb(132, 126, 133), rgb(163, 151, 175)); border: none; border-radius: 10px; color: white; font-size: 18px; cursor: pointer;">
+                    GUI Input Field
+                </button>
+                <button class="GUIMenu-button" style="width: 300px; height: 100px; background: linear-gradient(45deg, rgb(132, 126, 133), rgb(163, 151, 175)); border: none; border-radius: 10px; color: white; font-size: 18px; cursor: pointer;">
+                    GUI Scroll
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- BackgroundOptions Submenu -->
+    <div id="BackgroundOptionsPanel" class="PlusObjectsEditor-panel" style="display: none;">
+        <button class="close-BackgroundOptions" onclick="closeBackgroundOptions()">
+            <img src="Close.png" alt="Закрыть">
+        </button>
+        <h1 class="titleBackgroundOptions">Настройки Фона</h1>
+        <div class="scroll-containerPlus">
+            <div class="BackgroundOptions-content" style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
+                <input type="color" id="backgroundColor" class="text-input-BackgroundOptions" value="#000000">
+                <input type="text" id="backgroundUrl" class="text-input-BackgroundOptions" placeholder="Enter image URL">
+                <button id="applyBackground">Apply Background</button>
             </div>
         </div>
     </div>
